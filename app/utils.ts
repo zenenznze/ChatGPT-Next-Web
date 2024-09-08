@@ -260,6 +260,7 @@ export function isVisionModel(model: string) {
     "gpt-4o-mini",
     "GPT-4o",
     "GPT-4o-mini",
+    "Claude-3.5-Sonnet",
   ];
   const isGpt4Turbo =
     model.includes("gpt-4-turbo") && !model.includes("preview");
