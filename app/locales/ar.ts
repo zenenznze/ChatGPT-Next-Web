@@ -1,15 +1,21 @@
 import { SubmitKey } from "../store/config";
 import type { PartialLocaleType } from "./index";
 import { getClientConfig } from "../config/client";
-
+import { SAAS_CHAT_UTM_URL } from "@/app/constant";
 const isApp = !!getClientConfig()?.isApp;
 
 const ar: PartialLocaleType = {
   WIP: "قريبًا...",
   Error: {
     Unauthorized: isApp
-      ? "تم اكتشاف مفتاح API غير صالح، يرجى الذهاب إلى [الإعدادات](/#/settings) للتحقق من صحة مفتاح API."
-      : "كلمة المرور غير صحيحة أو فارغة، يرجى الذهاب إلى [تسجيل الدخول](/#/auth) لإدخال كلمة مرور صحيحة، أو أدخل مفتاح OpenAI API الخاص بك في [الإعدادات](/#/settings).",
+      ? `😆 واجهت المحادثة بعض المشكلات، لا داعي للقلق:
+    \\ 1️⃣ إذا كنت ترغب في تجربة دون إعداد، [انقر هنا لبدء المحادثة فورًا 🚀](${SAAS_CHAT_UTM_URL})
+    \\ 2️⃣ إذا كنت تريد استخدام موارد OpenAI الخاصة بك، انقر [هنا](/#/settings) لتعديل الإعدادات ⚙️`
+      : `😆 واجهت المحادثة بعض المشكلات، لا داعي للقلق:
+    \ 1️⃣ إذا كنت ترغب في تجربة دون إعداد، [انقر هنا لبدء المحادثة فورًا 🚀](${SAAS_CHAT_UTM_URL})
+    \ 2️⃣ إذا كنت تستخدم إصدار النشر الخاص، انقر [هنا](/#/auth) لإدخال مفتاح الوصول 🔑
+    \ 3️⃣ إذا كنت تريد استخدام موارد OpenAI الخاصة بك، انقر [هنا](/#/settings) لتعديل الإعدادات ⚙️
+ `,
   },
   Auth: {
     Title: "تحتاج إلى كلمة مرور",
@@ -18,6 +24,10 @@ const ar: PartialLocaleType = {
     Input: "أدخل رمز الوصول هنا",
     Confirm: "تأكيد",
     Later: "في وقت لاحق",
+    Return: "عودة",
+    SaasTips: "الإعدادات معقدة، أريد استخدامه على الفور",
+    TopTips:
+      "🥳 عرض NextChat AI الأول، افتح الآن OpenAI o1, GPT-4o, Claude-3.5 وأحدث النماذج الكبيرة",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} محادثة`,
@@ -43,6 +53,8 @@ const ar: PartialLocaleType = {
       PinToastAction: "عرض",
       Delete: "حذف",
       Edit: "تحرير",
+      RefreshTitle: "تحديث العنوان",
+      RefreshToast: "تم إرسال طلب تحديث العنوان",
     },
     Commands: {
       new: "دردشة جديدة",
@@ -279,6 +291,13 @@ const ar: PartialLocaleType = {
     },
 
     Access: {
+      SaasStart: {
+        Title: "استخدام NextChat AI",
+        Label: "(أفضل حل من حيث التكلفة)",
+        SubTitle:
+          "مدعوم رسميًا من NextChat، جاهز للاستخدام بدون إعداد، يدعم أحدث النماذج الكبيرة مثل OpenAI o1 و GPT-4o و Claude-3.5",
+        ChatNow: "الدردشة الآن",
+      },
       AccessCode: {
         Title: "كلمة المرور للوصول",
         SubTitle: "قام المشرف بتمكين الوصول المشفر",

@@ -1,15 +1,21 @@
 import { SubmitKey } from "../store/config";
 import type { PartialLocaleType } from "./index";
 import { getClientConfig } from "../config/client";
-
+import { SAAS_CHAT_UTM_URL } from "@/app/constant";
 const isApp = !!getClientConfig()?.isApp;
 
 const tr: PartialLocaleType = {
   WIP: "Çalışma devam ediyor...",
   Error: {
     Unauthorized: isApp
-      ? "Geçersiz API Anahtarı tespit edildi, lütfen API Anahtarını doğru şekilde yapılandırmak için [Ayarlar](/#/settings) sayfasına gidin."
-      : "Erişim şifresi yanlış veya boş, lütfen doğru erişim şifresini girmek için [Giriş](/#/auth) sayfasına gidin veya kendi OpenAI API Anahtarınızı [Ayarlar](/#/settings) sayfasına girin.",
+      ? `😆 Sohbet bazı sorunlarla karşılaştı, endişelenmeyin:
+    \\ 1️⃣ Eğer sıfır yapılandırma ile başlamak istiyorsanız, [buraya tıklayarak hemen sohbete başlayın 🚀](${SAAS_CHAT_UTM_URL})
+    \\ 2️⃣ Kendi OpenAI kaynaklarınızı kullanmak istiyorsanız, [buraya tıklayarak](/#/settings) ayarları değiştirin ⚙️`
+      : `😆 Sohbet bazı sorunlarla karşılaştı, endişelenmeyin:
+    \ 1️⃣ Eğer sıfır yapılandırma ile başlamak istiyorsanız, [buraya tıklayarak hemen sohbete başlayın 🚀](${SAAS_CHAT_UTM_URL})
+    \ 2️⃣ Eğer özel dağıtım sürümü kullanıyorsanız, [buraya tıklayarak](/#/auth) erişim anahtarını girin 🔑
+    \ 3️⃣ Kendi OpenAI kaynaklarınızı kullanmak istiyorsanız, [buraya tıklayarak](/#/settings) ayarları değiştirin ⚙️
+ `,
   },
   Auth: {
     Title: "Şifre Gerekli",
@@ -18,6 +24,10 @@ const tr: PartialLocaleType = {
     Input: "Erişim kodunu buraya girin",
     Confirm: "Onayla",
     Later: "Sonra",
+    Return: "Geri",
+    SaasTips: "Ayarlar çok karmaşık, hemen kullanmak istiyorum",
+    TopTips:
+      "🥳 NextChat AI lansman teklifi, OpenAI o1, GPT-4o, Claude-3.5 ve en son büyük modelleri şimdi açın",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} konuşma`,
@@ -43,6 +53,8 @@ const tr: PartialLocaleType = {
       PinToastAction: "Görünüm",
       Delete: "Sil",
       Edit: "Düzenle",
+      RefreshTitle: "Başlığı Yenile",
+      RefreshToast: "Başlık yenileme isteği gönderildi",
     },
     Commands: {
       new: "Yeni sohbet",
@@ -284,6 +296,14 @@ const tr: PartialLocaleType = {
     },
 
     Access: {
+      SaasStart: {
+        Title: "NextChat AI kullanın",
+        Label: "(En maliyet etkin çözüm)",
+        SubTitle:
+          "NextChat tarafından resmi olarak yönetilmektedir, yapılandırma olmadan hemen kullanıma hazırdır, OpenAI o1, GPT-4o, Claude-3.5 gibi en son büyük modelleri destekler",
+        ChatNow: "Şimdi sohbet et",
+      },
+
       AccessCode: {
         Title: "Erişim Şifresi",
         SubTitle: "Yönetici şifreli erişimi etkinleştirdi",

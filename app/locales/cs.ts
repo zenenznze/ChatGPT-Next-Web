@@ -1,15 +1,21 @@
 import { SubmitKey } from "../store/config";
 import type { PartialLocaleType } from "./index";
 import { getClientConfig } from "../config/client";
-
+import { SAAS_CHAT_UTM_URL } from "@/app/constant";
 const isApp = !!getClientConfig()?.isApp;
 
 const cs: PartialLocaleType = {
   WIP: "V přípravě...",
   Error: {
     Unauthorized: isApp
-      ? "Byl zjištěn neplatný API Key, prosím přejděte na stránku [Nastavení](/#/settings) a zkontrolujte, zda je API Key správně nakonfigurován."
-      : "Heslo je nesprávné nebo prázdné, prosím přejděte na stránku [Přihlášení](/#/auth) a zadejte správné heslo, nebo na stránku [Nastavení](/#/settings) a zadejte svůj vlastní OpenAI API Key.",
+      ? `😆 Rozhovor narazil na nějaké problémy, nebojte se:
+    \\ 1️⃣ Pokud chcete začít bez konfigurace, [klikněte sem pro okamžitý začátek chatu 🚀](${SAAS_CHAT_UTM_URL})
+    \\ 2️⃣ Pokud chcete využít své vlastní zdroje OpenAI, klikněte [sem](/#/settings) a upravte nastavení ⚙️`
+      : `😆 Rozhovor narazil na nějaké problémy, nebojte se:
+    \ 1️⃣ Pokud chcete začít bez konfigurace, [klikněte sem pro okamžitý začátek chatu 🚀](${SAAS_CHAT_UTM_URL})
+    \ 2️⃣ Pokud používáte verzi soukromého nasazení, klikněte [sem](/#/auth) a zadejte přístupový klíč 🔑
+    \ 3️⃣ Pokud chcete využít své vlastní zdroje OpenAI, klikněte [sem](/#/settings) a upravte nastavení ⚙️
+ `,
   },
   Auth: {
     Title: "Potřebné heslo",
@@ -18,6 +24,10 @@ const cs: PartialLocaleType = {
     Input: "Zadejte přístupový kód zde",
     Confirm: "Potvrdit",
     Later: "Později",
+    Return: "Návrat",
+    SaasTips: "Konfigurace je příliš složitá, chci okamžitě začít používat",
+    TopTips:
+      "🥳 Uvítací nabídka NextChat AI, okamžitě odemkněte OpenAI o1, GPT-4o, Claude-3.5 a nejnovější velké modely",
   },
   ChatItem: {
     ChatItemCount: (count: number) => `${count} konverzací`,
@@ -43,6 +53,8 @@ const cs: PartialLocaleType = {
       PinToastAction: "Zobrazit",
       Delete: "Smazat",
       Edit: "Upravit",
+      RefreshTitle: "Obnovit název",
+      RefreshToast: "Požadavek na obnovení názvu byl odeslán",
     },
     Commands: {
       new: "Nová konverzace",
@@ -282,6 +294,14 @@ const cs: PartialLocaleType = {
     },
 
     Access: {
+      SaasStart: {
+        Title: "Použití NextChat AI",
+        Label: "(Nejlepší nákladově efektivní řešení)",
+        SubTitle:
+          "Oficiálně udržováno NextChat, připraveno k použití bez konfigurace, podporuje nejnovější velké modely jako OpenAI o1, GPT-4o, Claude-3.5",
+        ChatNow: "Začněte chatovat nyní",
+      },
+
       AccessCode: {
         Title: "Přístupový kód",
         SubTitle: "Administrátor aktivoval šifrovaný přístup",
